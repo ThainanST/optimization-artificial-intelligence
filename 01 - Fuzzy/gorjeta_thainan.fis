@@ -1,0 +1,41 @@
+[System]
+Name='gorgeta'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='lom'
+
+[Input1]
+Name='comida'
+Range=[0 10]
+NumMFs=3
+MF1='ruim':'trapmf',[-5.687 -1.377 2 5]
+MF2='medio':'trapmf',[1 4 6 8]
+MF3='otimo':'gaussmf',[1 10]
+
+[Input2]
+Name='atendimento'
+Range=[0 10]
+NumMFs=3
+MF1='pessimo':'trapmf',[-3.6 -0.4 2 4]
+MF2='medio':'trapmf',[1 3 5 7]
+MF3='otimo':'trapmf',[6 8 10.4 13.6]
+
+[Output1]
+Name='gorgeta'
+Range=[0 10]
+NumMFs=3
+MF1='baixa':'trapmf',[-3.22 -0.78 2 4]
+MF2='media':'trapmf',[1 3 5 9]
+MF3='alta':'trapmf',[7 9 11 12]
+
+[Rules]
+1 1, 1 (1) : 2
+0 3, 3 (1) : 1
+3 2, 2 (1) : 1
